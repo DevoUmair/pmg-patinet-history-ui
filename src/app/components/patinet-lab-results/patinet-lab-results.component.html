@@ -1,0 +1,8 @@
+<highcharts-chart
+    *ngIf="vitalsChartOPtions"
+    [Highcharts]="highcharts"
+    [options]="vitalsChartOPtions"
+    [style.height.px]="calculateChartHeight()"
+    style="width: 100%; display: block;"
+>
+</highcharts-chart>
