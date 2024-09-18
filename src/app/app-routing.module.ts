@@ -20,7 +20,7 @@ const routes: Routes = [
   },
   {
    component: BioInfoVariantComponent,
-   path: 'bio-info'
+   path: 'bio-info/:id'
   },
 ];
 
