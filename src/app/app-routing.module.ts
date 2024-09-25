@@ -4,6 +4,11 @@ import { PatinetChartComponent } from './components/patinet-chart/patinet-chart.
 import { PatinetIcdChartComponent } from './components/patinet-icd-chart/patinet-icd-chart.component';
 import { PatinetLabResultsComponent } from './components/patinet-lab-results/patinet-lab-results.component';
 import { BioInfoVariantComponent } from './components/bio-info-variant/bio-info-variant.component';
+import { Pdf1Component } from './components/PDFS/pdf-1/pdf-1.component';
+import { Pdf2Component } from './components/PDFS/pdf-2/pdf-2.component';
+import { Pdf3Component } from './components/PDFS/pdf-3/pdf-3.component';
+import { Pdf4Component } from './components/PDFS/pdf-4/pdf-4.component';
+import { AnlaysisPatientComponent } from './components/bio-info-variant/anlaysis-patient/anlaysis-patient.component';
 
 const routes: Routes = [
   {
@@ -21,6 +26,26 @@ const routes: Routes = [
   {
    component: BioInfoVariantComponent,
    path: 'bio-info/:id'
+  },
+  {
+   component: AnlaysisPatientComponent,
+   path: 'anlysis-patient'
+  },
+  {
+   component: Pdf1Component,
+   path: 'pdf-1'
+  },
+  {
+   component: Pdf2Component,
+   path: 'pdf-2'
+  },
+  {
+   component: Pdf3Component,
+   path: 'pdf-3'
+  },
+  {
+   component: Pdf4Component,
+   path: 'pdf-4'
   },
 ];
 

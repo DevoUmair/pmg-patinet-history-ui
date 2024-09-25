@@ -22,6 +22,12 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { BioInfoColumnFillterComponent } from './components/bio-info-variant/bio-info-column-fillter/bio-info-column-fillter.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { Pdf1Component } from './components/PDFS/pdf-1/pdf-1.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Pdf2Component } from './components/PDFS/pdf-2/pdf-2.component';
+import { Pdf3Component } from './components/PDFS/pdf-3/pdf-3.component';
+import { Pdf4Component } from './components/PDFS/pdf-4/pdf-4.component';
+import { AnlaysisPatientComponent } from './components/bio-info-variant/anlaysis-patient/anlaysis-patient.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +35,12 @@ import { MatDialogModule } from '@angular/material/dialog';
     PatinetIcdChartComponent,
     PatinetLabResultsComponent,
     BioInfoVariantComponent,
-    BioInfoColumnFillterComponent
+    BioInfoColumnFillterComponent,
+    Pdf1Component,
+    Pdf2Component,
+    Pdf3Component,
+    Pdf4Component,
+    AnlaysisPatientComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +56,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatInputModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatDialogModule
+    MatDialogModule,
+    NgbModule
   ],
   providers: [
     DatePipe

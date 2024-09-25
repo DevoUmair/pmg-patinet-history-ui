@@ -34,4 +34,8 @@ export class ApiService {
   getUniqueAcmgClassification() {
     return this.http.get(`${this.varinatUrl}unique-acmg-classifications/`);
   }
+
+  getAnalysisSpecificPatientid(patinetId : number) {
+    return this.http.get(`${this.varinatUrl}analysis-specific-patient/${patinetId}`);
+  }
 }
