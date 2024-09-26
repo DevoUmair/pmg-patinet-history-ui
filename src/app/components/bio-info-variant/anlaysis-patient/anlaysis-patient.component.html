@@ -1,0 +1,91 @@
+<div class="container-varaint">
+    <div class="container-varaint-inner" >
+        <div class="search-conatiner" >
+            <div class="input-search" >
+                <input type="text" placeholder="Enter Patient Id"  [(ngModel)]="patientId" />
+            </div>
+            <button (click)="serahcAnalyisis()" >SEARCH</button>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <div class="loader" *ngIf="loader" >
+            <mat-spinner></mat-spinner>
+        </div>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!-- AnalysisId Column -->
+            <ng-container matColumnDef="AnalysisId">
+              <th mat-header-cell *matHeaderCellDef> Analysis Id </th>
+              <td mat-cell *matCellDef="let element"> {{element.AnalysisId}} </td>
+            </ng-container>
+          
+            <!-- AnalysisSubjectId Column -->
+            <ng-container matColumnDef="AnalysisSubjectId">
+              <th mat-header-cell *matHeaderCellDef> Analysis Subject Id </th>
+              <td mat-cell *matCellDef="let element"> {{element.AnalysisSubjectId}} </td>
+            </ng-container>
+          
+            <!-- SampleId Column -->
+            <ng-container matColumnDef="SampleId">
+              <th mat-header-cell *matHeaderCellDef> Sample Id </th>
+              <td mat-cell *matCellDef="let element"> {{element.SampleId}} </td>
+            </ng-container>
+          
+            <!-- SubjectId Column -->
+            <ng-container matColumnDef="SubjectId">
+              <th mat-header-cell *matHeaderCellDef> Subject Id </th>
+              <td mat-cell *matCellDef="let element"> {{element.SubjectId}} </td>
+            </ng-container>
+          
+            <!-- Url Column -->
+            <ng-container matColumnDef="Url">
+              <th mat-header-cell *matHeaderCellDef> Url </th>
+              <td mat-cell *matCellDef="let element"> <a [href]="element.Url" target="_blank">{{element.Url}}</a> </td>
+            </ng-container>
+          
+            <!-- CreatedAt Column -->
+            <ng-container matColumnDef="CreatedAt">
+              <th mat-header-cell *matHeaderCellDef> Created At </th>
+              <td mat-cell *matCellDef="let element"> {{element.CreatedAt}} </td>
+            </ng-container>
+          
+            <!-- UserFullName Column -->
+            <ng-container matColumnDef="UserFullName">
+              <th mat-header-cell *matHeaderCellDef> User Full Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.UserFullName}} </td>
+            </ng-container>
+          
+            <!-- ReferenceGenome Column -->
+            <ng-container matColumnDef="ReferenceGenome">
+              <th mat-header-cell *matHeaderCellDef> Reference Genome </th>
+              <td mat-cell *matCellDef="let element"> {{element.ReferenceGenome}} </td>
+            </ng-container>
+          
+            <!-- PatientId Column -->
+            <ng-container matColumnDef="Variants" >
+              <th mat-header-cell *matHeaderCellDef> Preview Variants</th>
+              <td mat-cell *matCellDef="let element"> 
+                <button type="button" class="btn btn-info" (click)="openLinkInNewTab(element.AnalysisId)">
+                    View Variants
+                </button>
+              </td>
+             
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          
+        </table>
+
+        <div style="height: 50px;"  *ngIf="loader"> 
+
+        </div>
+        
+        <div class="no-data-found-conatiner" *ngIf="noDataFound && !loader" >
+            <div class="no-data-found">No data found</div>
+        </div>
+
+    </div>
+    
+</div>        
