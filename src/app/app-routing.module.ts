@@ -33,7 +33,7 @@ const routes: Routes = [
   },
   {
    component: Pdf1Component,
-   path: 'pdf-1'
+   path: 'pdf-1/:id'
   },
   {
    component: Pdf2Component,

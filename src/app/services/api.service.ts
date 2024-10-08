@@ -38,4 +38,8 @@ export class ApiService {
   getAnalysisSpecificPatientid(patinetId : number) {
     return this.http.get(`${this.varinatUrl}analysis-specific-patient/${patinetId}`);
   }
+
+  getPatientVariantsPdf1(analysisId : string){
+    return this.http.get(`${this.varinatUrl}patient-variants-pdf1-data/${analysisId}`)
+  }
 }
