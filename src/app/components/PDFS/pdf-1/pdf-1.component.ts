@@ -22,7 +22,7 @@ interface PatientVariantData {
   styleUrls: ['./pdf-1.component.css']
 })
 export class Pdf1Component implements OnInit {
-  analysisId: string | null = null;
+  accessionId: string | null = null;
   variantData : PatientVariantData  [] = []
   constructor(private apiService: ApiService , private route: ActivatedRoute){
 
@@ -30,8 +30,8 @@ export class Pdf1Component implements OnInit {
   ngOnInit(): void {
   
     this.route.paramMap.subscribe(params => {
-      this.analysisId = params.get('id'); // 'id' is the name of the route parameter
-      console.log(this.analysisId);
+      this.accessionId = params.get('id'); // 'id' is the name of the route parameter
+      // console.log(this.analysisId);
       this.loadData()
     });
   }
@@ -39,8 +39,8 @@ export class Pdf1Component implements OnInit {
 
 
   loadData(){
-    if (this.analysisId) { // Ensure analysisId is not null or undefined
-      this.apiService.getPatientVariantsPdf1(this.analysisId).subscribe({
+    if (this.accessionId) { // Ensure analysisId is not null or undefined
+      this.apiService.getPatientVariantsPdf1(this.accessionId).subscribe({
         next: (res : any) => {
           this.variantData = res
         },

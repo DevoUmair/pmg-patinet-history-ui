@@ -27,8 +27,9 @@ export class ApiService {
     return this.http.get(this.labUrl)
   }
 
-  getVarinatDataBioInformatica(analysisId: number, offset: number, length: number , acmgClassification: string) {
-    return this.http.get(`${this.varinatUrl}variants/${analysisId}/${offset}/${length}/${acmgClassification}`);
+  getVarinatDataBioInformatica(accesionId: string, offset: number, length: number , acmgClassification: string) {
+    console.log(accesionId);
+    return this.http.get(`${this.varinatUrl}variants/${accesionId}/${offset}/${length}/${acmgClassification}`);
   }
   
   getUniqueAcmgClassification() {
