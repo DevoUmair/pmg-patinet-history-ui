@@ -14,63 +14,74 @@
         </div>
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-            <!-- AnalysisId Column -->
-            <ng-container matColumnDef="AnalysisId">
-              <th mat-header-cell *matHeaderCellDef> Analysis Id </th>
-              <td mat-cell *matCellDef="let element"> {{element.AnalysisId}} </td>
-            </ng-container>
-          
-            <!-- AnalysisSubjectId Column -->
-            <ng-container matColumnDef="AnalysisSubjectId">
-              <th mat-header-cell *matHeaderCellDef> Analysis Subject Id </th>
-              <td mat-cell *matCellDef="let element"> {{element.AnalysisSubjectId}} </td>
-            </ng-container>
-          
-            <!-- SampleId Column -->
-            <ng-container matColumnDef="SampleId">
-              <th mat-header-cell *matHeaderCellDef> Sample Id </th>
-              <td mat-cell *matCellDef="let element"> {{element.SampleId}} </td>
-            </ng-container>
-          
-            <!-- SubjectId Column -->
-            <ng-container matColumnDef="SubjectId">
-              <th mat-header-cell *matHeaderCellDef> Subject Id </th>
-              <td mat-cell *matCellDef="let element"> {{element.SubjectId}} </td>
-            </ng-container>
-          
-            <!-- Url Column -->
-            <ng-container matColumnDef="Url">
-              <th mat-header-cell *matHeaderCellDef> Url </th>
-              <td mat-cell *matCellDef="let element"> <a [href]="element.Url" target="_blank">{{element.Url}}</a> </td>
-            </ng-container>
-          
-            <!-- CreatedAt Column -->
-            <ng-container matColumnDef="CreatedAt">
-              <th mat-header-cell *matHeaderCellDef> Created At </th>
-              <td mat-cell *matCellDef="let element"> {{element.CreatedAt}} </td>
-            </ng-container>
-          
-            <!-- UserFullName Column -->
-            <ng-container matColumnDef="UserFullName">
-              <th mat-header-cell *matHeaderCellDef> User Full Name </th>
-              <td mat-cell *matCellDef="let element"> {{element.UserFullName}} </td>
-            </ng-container>
-          
-            <!-- ReferenceGenome Column -->
-            <ng-container matColumnDef="ReferenceGenome">
-              <th mat-header-cell *matHeaderCellDef> Reference Genome </th>
-              <td mat-cell *matCellDef="let element"> {{element.ReferenceGenome}} </td>
-            </ng-container>
+          <!-- Analysis_Id Column -->
+          <ng-container matColumnDef="Analysis_Id">
+            <th mat-header-cell *matHeaderCellDef> Analysis Id </th>
+            <td mat-cell *matCellDef="let element"> {{element.Analysis_Id}} </td>
+          </ng-container>
+
+          <!-- analysis_subject_id Column -->
+          <ng-container matColumnDef="analysis_subject_id">
+            <th mat-header-cell *matHeaderCellDef> Analysis Subject Id </th>
+            <td mat-cell *matCellDef="let element"> {{element.analysis_subject_id}} </td>
+          </ng-container>
+
+          <!-- sample_id Column -->
+          <ng-container matColumnDef="sample_id">
+            <th mat-header-cell *matHeaderCellDef> Sample Id </th>
+            <td mat-cell *matCellDef="let element"> {{element.sample_id}} </td>
+          </ng-container>
+
+          <!-- subject_id Column -->
+          <ng-container matColumnDef="subject_id">
+            <th mat-header-cell *matHeaderCellDef> Subject Id </th>
+            <td mat-cell *matCellDef="let element"> {{element.subject_id}} </td>
+          </ng-container>
+
+          <!-- url Column -->
+          <ng-container matColumnDef="url">
+            <th mat-header-cell *matHeaderCellDef> Url </th>
+            <td mat-cell *matCellDef="let element"> 
+              <a [href]="element.url" target="_blank">{{element.url}}</a> 
+            </td>
+          </ng-container>
+
+          <!-- user_full_name Column -->
+          <ng-container matColumnDef="user_full_name">
+            <th mat-header-cell *matHeaderCellDef> User Full Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.user_full_name}} </td>
+          </ng-container>
+
+          <!-- reference_genome Column -->
+          <ng-container matColumnDef="reference_genome">
+            <th mat-header-cell *matHeaderCellDef> Reference Genome </th>
+            <td mat-cell *matCellDef="let element"> {{element.reference_genome}} </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="Name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
+          </ng-container>
+
           
             <!-- PatientId Column -->
             <ng-container matColumnDef="Variants" >
               <th mat-header-cell *matHeaderCellDef> Preview Variants</th>
               <td mat-cell *matCellDef="let element"> 
-                <button type="button" class="btn btn-info" (click)="openLinkInNewTab(element.AnalysisId)">
+                <button type="button" class="btn btn-info" (click)="openLinkInNewTab(element.Name.split('_')[0])">
                     View Variants
                 </button>
               </td>
-             
+            </ng-container>
+
+            <ng-container matColumnDef="Pdf" >
+              <th mat-header-cell *matHeaderCellDef> Preview PDF</th>
+              <td mat-cell *matCellDef="let element"> 
+                <button type="button" class="btn btn-info" (click)="openLinkInNewTabPdf(element.Name.split('_')[0])">
+                    View PDF1
+                </button>
+              </td>
             </ng-container>
           
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -51,8 +51,7 @@ export class BioInfoVariantComponent implements OnInit, AfterViewInit {
   ];
   checkedColumn: string[] = [];
 
-  analysisId: string | null = null;
-  analysisIdNumber: number | null = null;
+  accesionId: string | null = null;
   dataSource: MatTableDataSource<VariantWithAnalysisData> = new MatTableDataSource<VariantWithAnalysisData>();
   recordOptions = [10, 40, 80, 120, 200, 300];
   recordsToShow = this.recordOptions[0];
@@ -75,8 +74,8 @@ export class BioInfoVariantComponent implements OnInit, AfterViewInit {
     this.checkedColumn = this.allColumns; // Start with all columns checked
     this.displayedColumns = [...this.checkedColumn]; // Initialize displayedColumns
     this.route.paramMap.subscribe(params => {
-      this.analysisId = params.get('id'); // 'id' is the name of the route parameter
-      console.log(this.analysisId);
+      this.accesionId = params.get('id'); // 'id' is the name of the route parameter
+      console.log(params.get('id'));
       this.loadData()
     });
   }
@@ -103,27 +102,27 @@ export class BioInfoVariantComponent implements OnInit, AfterViewInit {
   loadData(): void {
     this.loader = true;
     this.dataSource.data = [];
-    this.analysisIdNumber = Number(this.analysisId);
-    this.apiService.getVarinatDataBioInformatica(this.analysisIdNumber, this.offset, this.pageSize, this.selectedAcmgClassification).subscribe({
-      next: (res: any) => {
-        if (res && res.Data && Array.isArray(res.Data)) {
-          this.dataSource.data = res.Data;
-          this.TotalRecords = res.Count;   
-          this.noDataFound = false;
-        } else {
+    if(this.accesionId != null){
+      this.apiService.getVarinatDataBioInformatica(this.accesionId, this.offset, this.pageSize, this.selectedAcmgClassification).subscribe({
+        next: (res: any) => {
+          if (res && res.Data && Array.isArray(res.Data)) {
+            this.dataSource.data = res.Data;
+            this.TotalRecords = res.Count;   
+            this.noDataFound = false;
+          } else {
+            this.noDataFound = true;
+          }
+        },
+        error: (err) => {
+          console.log(err);
           this.noDataFound = true;
+          this.loader = false;
+        },
+        complete: () => {
+          this.loader = false;
         }
-      },
-      error: (err) => {
-        console.log(err);
-        this.noDataFound = true;
-        this.loader = false;
-      },
-      complete: () => {
-        this.analysisIdNumber = 0;
-        this.loader = false;
-      }
-    });
+      });
+    }
   }
 
   openFillterDialog() {
