@@ -20,9 +20,9 @@ interface PatientVariantData {
 }
 
 @Component({
-  selector: 'app-pdf-1',
-  templateUrl: './pdf-1.component.html',
-  styleUrls: ['./pdf-1.component.css']
+  selector: 'app-pdf-viewer',
+  templateUrl: './pdf-viewer.component.html',
+  styleUrls: ['./pdf-viewer.component.scss']
 })
 export class Pdf1Component implements OnInit {
   accessionId: string | null = null;
