@@ -139,12 +139,20 @@
             <tr>
               <!-- <th style="border: 1px solid black;">Genomic Position</th> -->
               <th style="border: 1px solid black;"> Coverage</th>
+              <th *ngIf="data.ACMGClassification !== 'Uncertain significance' && data.ACMGClassification !== 'Likely pathogenic' && data.ACMGClassification !== 'Pathogenic'" style="border: 1px solid black;">AcmgClassification</th>
+              <th *ngIf="data.ACMGClassification === 'Likely pathogenic'" style="border: 1px solid black; background: orange;">AcmgClassification</th>
+              <th *ngIf="data.ACMGClassification === 'Pathogenic'" style="border: 1px solid black; background: red;">AcmgClassification</th>
+              <th *ngIf="data.ACMGClassification === 'Uncertain significance' " style="border: 1px solid black !important; background: yellow;">AcmgClassification</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <!-- <td style="border: 1px solid black;">Chr22:NC_000022.10:g.29095917C>G</td> -->
               <td style="border: 1px solid black;">{{data.Coverage}}</td>
+              <td *ngIf="data.ACMGClassification !== 'Uncertain significance' && data.ACMGClassification !== 'Likely pathogenic' && data.ACMGClassification !== 'Pathogenic'" style="border: 1px solid black;">{{data.ACMGClassification}}</td>
+              <td *ngIf="data.ACMGClassification === 'Likely pathogenic'" style="border: 1px solid black; background: orange;">{{data.ACMGClassification}}</td>
+              <td *ngIf="data.ACMGClassification === 'Pathogenic'" style="border: 1px solid black; background: red;">{{data.ACMGClassification}}</td>
+              <td *ngIf="data.ACMGClassification === 'Uncertain significance' " style="border: 1px solid black; background: yellow;">{{data.ACMGClassification}}</td>
             </tr>
           </tbody>
         </table>
